@@ -1,0 +1,30 @@
+:host{
+  display: block;
+  position: relative;
+}
+
+#input{
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background-color: grey;
+  padding-left: 5px;
+  box-sizing: border-box;
+}
+
+label{
+  font-weight: bold;
+  color: white;
+  font-size: .8rem;
+}
+.error-message{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 140%;
+  left: 0%;
+  color: red;
+  font-size: .8rem;
+  font-weight: bold;
+}

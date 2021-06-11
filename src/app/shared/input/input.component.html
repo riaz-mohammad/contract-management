@@ -1,0 +1,11 @@
+
+<label for="input">{{ placeholder }}:</label>
+<input [type]="type" id="input"
+              [formControl]="formControl"
+              (input)="onValueChange()"
+              (blur)="onTouched()"/>
+
+<span *ngIf="validity" class="error-message">
+      Enter {{ placeholder }} Please!
+</span>   
+          

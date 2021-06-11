@@ -1,0 +1,63 @@
+
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
+  <!-- App-Input is a custom input which implements ControlValueAccessor Interface -->
+  <app-input class="input" 
+            placeholder="Registration Number"
+            type="text"
+            formControlName="registrationNumber">
+  </app-input>
+  <app-input class="input" 
+            placeholder="Institution"
+            type="text"
+            formControlName="institution">
+  </app-input>
+
+  <div class="dates" formGroupName="conclusionDate">
+    <p>Conclusion Date:</p>
+       <app-input class="date" placeholder="Day"
+                  type="text"
+                  formControlName="day"></app-input>
+       <app-input class="date" placeholder="Month"
+                  type="text"
+                  formControlName="month"></app-input>
+       <app-input class="date" placeholder="Year"
+                  type="text"
+                  formControlName="year"></app-input>
+  </div>
+  
+  
+  <div class="dates" formGroupName="validityDate">
+    <p>Validity Date:</p>
+       <app-input class="date" placeholder="Day"
+                  type="text"
+                  formControlName="day">
+       </app-input>
+       <app-input class="date" placeholder="Month"
+                  type="text"
+                  formControlName="month">
+       </app-input>
+       <app-input class="date" placeholder="Year"
+                  type="text"
+                  formControlName="year">
+       </app-input>
+  </div>
+  
+  <div class="dates" formGroupName="terminationDate">
+    <p>Termination Date:</p>
+       <app-input class="date" placeholder="Day"
+                  type="text"
+                  formControlName="day">
+       </app-input>
+       <app-input class="date" placeholder="Month"
+                  type="text"
+                  formControlName="month">
+       </app-input>
+       <app-input class="date" placeholder="Year"
+                  type="text"
+                  formControlName="year">
+       </app-input>
+  </div>
+
+    <button type="submit" class="submit-button">NEXT</button>
+</form>

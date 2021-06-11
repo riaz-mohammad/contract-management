@@ -14,12 +14,15 @@ import { LoginComponent } from './app-components/login/login.component';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     BannerComponent,
-    LoginComponent
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -27,8 +30,8 @@ import { LoginComponent } from './app-components/login/login.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
-    
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

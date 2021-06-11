@@ -1,8 +1,25 @@
 :host{
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
   width: 100%;
+
 }
+
+.register-button{
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  width: 20%;
+  box-sizing: border-box;
+  transition: all 300ms ease;
+  font-weight: bold;
+  &:hover{
+    background-color: white;
+    color: black
+  }
+}
+
   

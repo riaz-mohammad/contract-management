@@ -1,2 +1,11 @@
+<button (click)="toggleFormVisibility()" 
+        class="register-button">
+    REGISTER A CONTRACT
+</button>
+<ng-container *ngIf="showForm">
+  <app-contract-registration>
+  </app-contract-registration>
+</ng-container>
+    
 
-<button>REGISTER A CONTRACT</button>
+
