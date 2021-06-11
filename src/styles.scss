@@ -1,8 +1,22 @@
+
+
 /* You can add global styles to this file, and also import other style files */
 *, ::after, ::before{
   box-sizing: border-box;
 }
 
+button{
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+input{
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
 
  body{
    padding: 0;
@@ -10,3 +24,5 @@
    height: 100vh;
  } 
    
+html { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

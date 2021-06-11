@@ -1,1 +1,15 @@
-<h1>FORM</h1>
+<h2 class="header">Enter Your Credentials</h2>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
+    <label for="name">EMAIL:</label>
+      <input formControlName="email" id="name" placeholder="name" type="text">
+     <span>{{ emailError }}</span>
+
+    <label for="password">PASSWORD:</label>
+      <input formControlName="password" id="password" placeholder="password" type="password">
+     <span>{{ passwordError }}</span>
+
+      <button class="button">LOGIN</button>
+</form>
+    
+     
