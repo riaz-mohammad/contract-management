@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -9,7 +10,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 })
 export class LoginComponent implements OnInit{
   public formGroup!: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+              private router: Router) { }
 
   public get emailError(): string {
     if (this.email.dirty && this.email.hasError('required')) {
@@ -35,7 +37,7 @@ export class LoginComponent implements OnInit{
   }
   public onSubmit(): void {
     this.formGroup.valid ?
-      console.log(this.formGroup.value) :
+      this.router.navigate(['/home']) :
       null;
   }
   ngOnInit(): void {
