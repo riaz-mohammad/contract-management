@@ -1,5 +1,8 @@
 
 
+
+
+
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
   <!-- App-Input is a custom input which implements ControlValueAccessor Interface -->
   <app-input class="input" 
@@ -16,29 +19,44 @@
   <div class="dates" formGroupName="conclusionDate">
     <p>Conclusion Date:</p>
        <app-input class="date" placeholder="Day"
-                  type="text"
-                  formControlName="day"></app-input>
+                  type="number"
+                  [min]="dates.minDay"
+                  [max]="dates.minDay"
+                  formControlName="day">
+        </app-input>
        <app-input class="date" placeholder="Month"
-                  type="text"
-                  formControlName="month"></app-input>
+                  type="number"
+                  [min]="dates.minMonth"
+                  [max]="dates.minMonth"
+                  formControlName="month">
+        </app-input>
        <app-input class="date" placeholder="Year"
-                  type="text"
-                  formControlName="year"></app-input>
+                  type="number"
+                  [min]="dates.minYear"
+                  [max]="dates.minYear"
+                  formControlName="year">
+        </app-input>
   </div>
   
   
   <div class="dates" formGroupName="validityDate">
     <p>Validity Date:</p>
        <app-input class="date" placeholder="Day"
-                  type="text"
+                  type="number"
+                  [min]="dates.minDay + 1"
+                  [max]="dates.maxDay"
                   formControlName="day">
        </app-input>
        <app-input class="date" placeholder="Month"
-                  type="text"
+                  type="number"
+                  [min]="dates.minMonth"
+                  [max]="dates.maxMonth"
                   formControlName="month">
        </app-input>
        <app-input class="date" placeholder="Year"
-                  type="text"
+                  type="number"
+                  [min]="dates.minYear"
+                  [max]="dates.maxYear"
                   formControlName="year">
        </app-input>
   </div>
@@ -46,18 +64,31 @@
   <div class="dates" formGroupName="terminationDate">
     <p>Termination Date:</p>
        <app-input class="date" placeholder="Day"
-                  type="text"
+                  type="number"
+                  [min]="dates.minDay + 1"
+                  [max]="dates.maxDay"
                   formControlName="day">
        </app-input>
        <app-input class="date" placeholder="Month"
-                  type="text"
+                  type="number"
+                  [min]="dates.minMonth"
+                  [max]="dates.maxMonth"
                   formControlName="month">
        </app-input>
        <app-input class="date" placeholder="Year"
-                  type="text"
+                  type="number"
+                  [min]="dates.minYear + 1"
+                  [max]="dates.maxYear"
                   formControlName="year">
        </app-input>
   </div>
-
-    <button type="submit" class="submit-button">NEXT</button>
+  
+  <p class="error" *ngIf="formGroup.dirty && formGroup.invalid">
+    Please fill-in all the fields correctly!
+  </p>
+    <app-button type="submit" class="submit-button">NEXT</app-button>
 </form>
+
+
+
+    

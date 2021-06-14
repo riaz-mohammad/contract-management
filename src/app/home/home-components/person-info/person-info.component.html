@@ -1,0 +1,41 @@
+
+<form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+     <app-input class="input"
+             type="text" 
+             placeholder="Name"
+             formControlName="name"
+             >
+      </app-input>
+     <app-input class="input"
+             type="text" 
+             placeholder="Surname"
+             formControlName="surname"
+             >
+      </app-input>
+     <app-input class="input"
+             type="text" 
+             placeholder="Age"
+             formControlName="age"
+             >
+      </app-input>
+     <app-input class="input"
+             type="text" 
+             placeholder="Email"
+             formControlName="email"
+             >
+      </app-input>
+     <app-input class="input"
+             type="text" 
+             placeholder="Telephone Number"
+             formControlName="telephoneNumber"
+             >
+      </app-input>
+     <app-input class="input"
+             type="text" 
+             placeholder="National Identification Number"
+             formControlName="nationalIdentificationNumber"
+             >
+      </app-input>
+
+      <app-button type="submit" class="submit-button">NEXT</app-button>
+</form>
