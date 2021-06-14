@@ -1,3 +1,12 @@
 :host{
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 95vh;
+  width: 100%;
+  align-items: center;
+}
+  
+.client-header{
+  color: white;
 }

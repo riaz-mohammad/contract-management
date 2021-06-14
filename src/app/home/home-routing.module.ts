@@ -1,8 +1,23 @@
+import { ContractsComponent } from './home-components/contracts/contracts.component';
+import { AdvisorComponent } from './home-components/advisor/advisor.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientComponent } from './home-components/client/client.component';
+import { ContractRegistrationComponent } from './home-components/contract-registration/contract-registration.component';
 import { HomeComponent } from './home.component';
+import { AdvisorsComponent } from './home-components/advisors/advisors.component';
+import { ClientsComponent } from './home-components/clients/clients.component';
 
-const routes: Routes = [{ path: '', component: HomeComponent }];
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'contracts', component: ContractsComponent },
+  { path: 'advisors', component: AdvisorsComponent },
+  { path: 'clients', component: ClientsComponent },
+  { path: 'registration', component: ContractRegistrationComponent },
+  { path: 'registration/client', component: ClientComponent },
+  { path: 'registration/advisor', component: AdvisorComponent },
+];
+  
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

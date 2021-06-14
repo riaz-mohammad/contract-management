@@ -1,6 +1,8 @@
 
 <label for="input">{{ placeholder }}:</label>
-<input [type]="type" id="input"
+<input id="input" [type]="type" 
+              [min]="min"
+              [max]="max"
               [formControl]="formControl"
               (input)="onValueChange()"
               (blur)="onTouched()"/>

@@ -7,7 +7,9 @@
   align-items: center;
   
 }
-
+.registration-header{
+  color: white;
+}
 
 
 .form{
@@ -34,9 +36,6 @@
   }
 }
 
-// .ng-invalid{
-//   border-bottom: 1px solid red;
-// }
 
 .ng-touched.ng-invalid{
   border-bottom: 1px solid red;

@@ -12,8 +12,11 @@
              formControlName="surname"
              >
       </app-input>
+  <!-- Client and Advisor both should be minimum 18 years old and maximum 60 years old-->
      <app-input class="input"
-             type="text" 
+             type="number" 
+             [min]="ages.min"
+             [max]="ages.max"
              placeholder="Age"
              formControlName="age"
              >
@@ -36,6 +39,10 @@
              formControlName="nationalIdentificationNumber"
              >
       </app-input>
-
-      <app-button type="submit" class="submit-button">NEXT</app-button>
+      
+      <!-- Here the button component will be rendered -->
+      <div class="submit-button">
+          <ng-content></ng-content>
+      </div>
+          
 </form>

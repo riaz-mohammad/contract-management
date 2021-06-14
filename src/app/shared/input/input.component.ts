@@ -18,6 +18,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class InputComponent implements OnInit, ControlValueAccessor {
   @Input() type!: string;
   @Input() placeholder!: string;
+  @Input() min: number | undefined;
+  @Input() max: number | undefined;
   public formControl = new FormControl('', Validators.required);
 
   public valueChanged(value: string): void {}

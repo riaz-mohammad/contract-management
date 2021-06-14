@@ -5,19 +5,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-
-
   {
     path: 'login',
     component: LoginComponent
   },
+
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   {
     path: '',
     pathMatch: 'full',
     redirectTo: 'login'
   },
-
-  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   {
     path: '**',
     redirectTo: ''
