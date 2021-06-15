@@ -15,7 +15,8 @@
             type="text"
             formControlName="institution">
   </app-input>
-
+ 
+  <!-- Conclusion date is today date, -->
   <div class="dates" formGroupName="conclusionDate">
     <p>Conclusion Date:</p>
        <app-input class="date" placeholder="Day"
@@ -38,7 +39,7 @@
         </app-input>
   </div>
   
-  
+  <!-- Validity start from the next day of Conclusion Date -->
   <div class="dates" formGroupName="validityDate">
     <p>Validity Date:</p>
        <app-input class="date" placeholder="Day"
@@ -61,6 +62,7 @@
        </app-input>
   </div>
   
+  <!-- Termination Should be minimum 1 year -->
   <div class="dates" formGroupName="terminationDate">
     <p>Termination Date:</p>
        <app-input class="date" placeholder="Day"
