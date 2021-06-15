@@ -13,6 +13,10 @@ import { RegistrationsComponent } from './home-components/registrations/registra
 import { ContractsComponent } from './home-components/contracts/contracts.component';
 import { AdvisorsComponent } from './home-components/advisors/advisors.component';
 import { ClientsComponent } from './home-components/clients/clients.component';
+import { ContractComponent } from './home-components/contract/contract.component';
+import { TableHeaderComponent } from './home-components/table-header/table-header.component';
+import { TableDataComponent } from './home-components/table-data/table-data.component';
+import { DetailsComponent } from './home-components/details/details.component';
 
 
 
@@ -27,6 +31,10 @@ import { ClientsComponent } from './home-components/clients/clients.component';
     ContractsComponent,
     AdvisorsComponent,
     ClientsComponent,
+    ContractComponent,
+    TableHeaderComponent,
+    TableDataComponent,
+    DetailsComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,149 @@
+<ul class="table">
+  <!-- Table Headers Client-->
+  <app-table-header class="table-header owner">
+    CLIENT
+  </app-table-header>
+  <app-table-header class="table-header">
+    NAME
+  </app-table-header>
+  <app-table-header class="table-header">
+    SURNAME
+  </app-table-header>
+  <app-table-header class="table-header">
+    AGE
+  </app-table-header>
+  <app-table-header class="table-header">
+    EMAIL
+  </app-table-header>
+  <app-table-header class="table-header">
+    TELEPHONE NUMBER
+  </app-table-header>
+  <app-table-header class="table-header">
+    NATIONAL IDENTITY NUMBER
+  </app-table-header>
+  
+  <!-- Table Data Client-->
+    
+  <ng-container *ngIf="client$ | async as client">
+    <!-- this one is an empty component just not to have hole in the ui table  -->
+     <app-table-data class="table-data"></app-table-data>
+      <app-table-data class="table-data">
+          {{ client.name }}  
+      </app-table-data>
+      <app-table-data class="table-data">
+        {{ client.surname }}
+      </app-table-data>
+      <app-table-data class="table-data">
+        {{ client.age }}
+      </app-table-data>
+      <app-table-data class="table-data">
+        {{ client.email }}
+      </app-table-data>
+      <app-table-data class="table-data">
+        {{ client.telephoneNumber }}
+      </app-table-data>
+      <app-table-data class="table-data">
+        {{ client.nationalIdentificationNumber }}
+      </app-table-data>
+    
+  </ng-container>
+  
+
+ <!-- Table Headers Contract-->
+  <app-table-header class="table-header owner">
+    CONTRACT 
+  </app-table-header>
+  <app-table-header class="table-header">
+    REGISTRATION NUMBER
+  </app-table-header>
+  <app-table-header class="table-header">
+    INSTITUTION
+  </app-table-header>
+  <app-table-header class="table-header">
+    CONCLUSION DATE
+  </app-table-header>
+  <app-table-header class="table-header">
+    VALIDITY DATE
+  </app-table-header>
+  <app-table-header class="table-header">
+    TERMINATION DATE
+  </app-table-header>
+  <!-- this one is an empty component just not to have hole in the ui table  -->
+  <app-table-header class="table-header"></app-table-header>
+  
+  
+  
+
+ <!-- Table Data Contract -->
+
+ <ng-container *ngIf="contract$ | async as contract">
+    <!-- this one is an empty component just not to have hole in the ui table  -->
+    <app-table-data class="table-data"></app-table-data>
+    <app-table-data class="table-data">
+      {{contract.registrationNumber}}
+    </app-table-data>
+    <app-table-data class="table-data">
+      {{contract.institution}}
+    </app-table-data>
+    <app-table-data class="table-data">
+      {{contract.conclusionDate | customDate}}
+    </app-table-data>
+    <app-table-data class="table-data">
+      {{contract.validityDate | customDate}}
+    </app-table-data>
+    <app-table-data class="table-data">
+      {{contract.terminationDate | customDate}}
+    </app-table-data>
+    <app-table-data class="table-data"></app-table-data>
+    
+ </ng-container>
+  
+<!-- Table Headers Advisor  -->
+ <app-table-header class="table-header owner">
+    ADVISOR
+  </app-table-header>
+ <app-table-header class="table-header">
+    NAME
+  </app-table-header>
+  <app-table-header class="table-header">
+    SURNAME
+  </app-table-header>
+  <app-table-header class="table-header">
+    AGE
+  </app-table-header>
+  <app-table-header class="table-header">
+    EMAIL
+  </app-table-header>
+  <app-table-header class="table-header">
+    TELEPHONE NUMBER
+  </app-table-header>
+  <app-table-header class="table-header">
+    NATIONAL IDENTITY NUMBER
+  </app-table-header>
+ 
+  <!-- Table Data Advisor -->
+    
+ <ng-container *ngIf="advisor$ | async as advisor">
+   <!-- this one is an empty component just not to have hole in the ui table  -->
+    <app-table-data class="table-data"></app-table-data>
+    <app-table-data class="table-data">
+      {{advisor.name}}
+    </app-table-data>
+    <app-table-data class="table-data">
+      {{advisor.surname}}
+    </app-table-data>
+    <app-table-data class="table-data">
+      {{advisor.age}}
+    </app-table-data>
+    <app-table-data class="table-data">
+      {{advisor.email}}
+    </app-table-data>
+    <app-table-data class="table-data">
+      {{advisor.telephoneNumber}}
+    </app-table-data>
+    <app-table-data class="table-data">
+      {{advisor.nationalIdentificationNumber}}
+    </app-table-data>
+ </ng-container>
+</ul>
+

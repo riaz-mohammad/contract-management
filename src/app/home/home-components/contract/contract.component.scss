@@ -1,0 +1,46 @@
+:host{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
+.table{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template: repeat(6, .2fr .1fr) / repeat(7, auto);
+  
+  .table-header{
+    background-color: rgba(0, 0, 0, 0.671);
+    color: white;
+    text-align: center;
+    
+  }
+  
+  .table-data{
+    background-color: rgba(128, 128, 128, 0.767);
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .owner{
+    background-color: rgba(25, 121, 185, 0.795);
+  }
+}
+
+
+
+
+ul li{
+  list-style: none;
+}

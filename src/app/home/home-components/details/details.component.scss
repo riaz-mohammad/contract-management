@@ -1,0 +1,41 @@
+:host{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  
+  ul{
+    padding: 0;
+    margin: 0;
+  }
+
+  .table{
+    height: 40%;
+    width: 60%;
+    display: grid;
+    grid-template: 0.2fr 0.1fr/repeat(6, auto);
+    
+    .table-header{
+      text-align: center;
+      background-color: rgba(51, 143, 219, 0.87);
+    }
+
+
+    .table-data{
+      background-color: rgb(128, 128, 128);
+      text-align: center;
+      padding: 1rem;
+      color: black;
+      
+    }
+  }
+}
+
+
+.close-button{
+  width: 20%;
+  align-self: center;
+}

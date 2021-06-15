@@ -1,2 +1,22 @@
 
-<h1>ADVISORS COMPONENT</h1>
+  <h2>ADVISOR</h2>
+ <ng-container *ngIf="advisors$ | async as advisor">
+    <!-- Don't show the detail box and button if the detail preview is open -->
+    <ng-container *ngIf="!showAdvisor">
+      <div class="advisors">
+        <h3>{{ advisor.name }}</h3>
+        <app-button (click)="showAdvisorInfo()">DETAILS</app-button>
+      </div>
+    </ng-container>
+ </ng-container>
+
+<!-- The detail preview component -->
+<ng-container *ngIf="showAdvisor">
+    
+    <app-details 
+          (closeDetails)="showAdvisorInfo()"
+          [details$]="advisors$">
+    </app-details>
+
+</ng-container>
+      
