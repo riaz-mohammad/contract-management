@@ -9,7 +9,6 @@ import { ContractRegistrationComponent } from './home-components/contract-regist
 import { PersonInfoComponent } from './home-components/person-info/person-info.component';
 import { ClientComponent } from './home-components/client/client.component';
 import { AdvisorComponent } from './home-components/advisor/advisor.component';
-import { RegistrationsComponent } from './home-components/registrations/registrations.component';
 import { ContractsComponent } from './home-components/contracts/contracts.component';
 import { AdvisorsComponent } from './home-components/advisors/advisors.component';
 import { ClientsComponent } from './home-components/clients/clients.component';
@@ -27,7 +26,6 @@ import { DetailsComponent } from './home-components/details/details.component';
     PersonInfoComponent,
     ClientComponent,
     AdvisorComponent,
-    RegistrationsComponent,
     ContractsComponent,
     AdvisorsComponent,
     ClientsComponent,

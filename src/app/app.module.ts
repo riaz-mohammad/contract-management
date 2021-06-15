@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +11,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './app-components/navigation/navigation.component';
 import { BannerComponent } from './app-components/banner/banner.component';
 import { LoginComponent } from './app-components/login/login.component';
+import { LogoutModalComponent } from './shared/logout-modal/logout-modal.component';
 
 
 
@@ -24,12 +26,14 @@ import { LoginComponent } from './app-components/login/login.component';
     BannerComponent,
     LoginComponent,
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    SharedModule
   ],
 
   providers: [],

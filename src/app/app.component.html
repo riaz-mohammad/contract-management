@@ -1,5 +1,13 @@
 <app-navigation></app-navigation>
 <app-banner></app-banner> 
+
+<ng-container *ngIf="showModal$ | async">
+    <app-logout-modal>
+    </app-logout-modal>
+</ng-container>
+    
+
+
 <router-outlet></router-outlet>
  
 

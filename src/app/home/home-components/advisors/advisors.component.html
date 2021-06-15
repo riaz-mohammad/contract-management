@@ -1,5 +1,4 @@
-
-  <h2>ADVISOR</h2>
+<h2>ADVISOR</h2>
  <ng-container *ngIf="advisors$ | async as advisor">
     <!-- Don't show the detail box and button if the detail preview is open -->
     <ng-container *ngIf="!showAdvisor">
@@ -16,6 +15,7 @@
     <app-details 
           (closeDetails)="showAdvisorInfo()"
           [details$]="advisors$">
+          ADVISOR DETAILS
     </app-details>
 
 </ng-container>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthorizationService } from './../../services/authorization.service';
 
 
 @Component({
@@ -10,8 +11,11 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit{
   public formGroup!: FormGroup;
-  constructor(private formBuilder: FormBuilder,
-              private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authorizationService: AuthorizationService
+    ) { }
 
   public get emailError(): string {
     if (this.email.dirty && this.email.hasError('required')) {
@@ -36,9 +40,13 @@ export class LoginComponent implements OnInit{
     return this.formGroup.get('password') as FormControl;
   }
   public onSubmit(): void {
-    this.formGroup.valid ?
-      this.router.navigate(['/home']) :
-      null;
+    if (this.formGroup.valid) {
+      this.authorizationService
+        .saveUserCredentials(this.formGroup.value);
+      this.router.navigate(['/home']);
+    }
+      
+
   }
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({

@@ -5,3 +5,38 @@
 <h1 class="header">
   CONTRACT MANAGEMENT
 </h1>
+
+  <!-- If route is home or login then don't show the buttons, home already shows this component, and on login, it should be always hidden -->
+  <ng-container *ngIf="!(showButton('/home') || showButton('/login'))">
+  
+     <app-registrations class="registration">
+        <app-button (click)="showButtons()">
+            REGISTRATION
+        </app-button>
+        <!-- routerLink could do the work but 
+        all this buttons call the changeRoute method to change the route path according to the argument passed,
+        but also toggle the buttonsState -->
+        <ng-container *ngIf="buttonsState">
+            <app-button (click)="changeRoute('/home')">HOME</app-button>
+            <!-- Don't show this button if we are on it's route path already -->
+            <app-button *ngIf="!showButton('/home/registration')" 
+                        (click)="changeRoute('/home/registration')">
+                  REGISTER A CONTRACT
+            </app-button>
+            <app-button *ngIf="!showButton('/home/contracts')" 
+                        (click)="changeRoute('/home/contracts')">
+                  CONTRACTS
+            </app-button>
+            <app-button *ngIf="!showButton('/home/advisors')"
+                        (click)="changeRoute('/home/advisors')">
+                  ADVISORS
+            </app-button>
+            <app-button *ngIf="!showButton('/home/clients')"
+                        (click)="changeRoute('/home/clients')">
+                  CLIENTS
+            </app-button>
+            <app-button (click)="logout()">LOGOUT</app-button>
+         </ng-container>
+    </app-registrations> 
+
+  </ng-container>

@@ -1,14 +1,32 @@
+import { LogoutService } from './../../services/logout.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent{
+  constructor(public router: Router, private logoutService: LogoutService) {}
+  public buttonsState!: boolean;
+  
+  public showButtons(): void {
+    this.buttonsState = !this.buttonsState;
+  }
 
-  constructor() { }
+  public changeRoute(path: string): void {
+    this.buttonsState = !this.buttonsState;
+    this.router.navigate([path]);
+  }
 
-  ngOnInit(): void {}
+  public logout(): void {
+    this.buttonsState = !this.buttonsState;
+    this.logoutService.showModal(true);
+  }
 
+  public  showButton(path: string): boolean {
+    return this.router.url === path;
+  }
+  
 }

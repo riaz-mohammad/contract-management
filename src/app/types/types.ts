@@ -35,3 +35,8 @@ export interface Dates {
 
 
 export type Title = 'advisor' | 'client';
+
+export interface Credentials {
+  email: string;
+  password: string;
+}
