@@ -1,13 +1,28 @@
 
-<label for="input">{{ placeholder }}:</label>
-<input id="input" [type]="type" 
+<input [id]="placeholder" [type]="type" class="input"
               [min]="min"
               [max]="max"
+              [placeholder]="placeholder"
               [formControl]="formControl"
               (input)="onValueChange()"
               (blur)="onTouched()"/>
+<div class="focus"></div>
 
-<span *ngIf="validity" class="error-message">
-      Enter {{ placeholder }} Please!
-</span>   
+<label [for]="placeholder" class="label" 
+      [class]="{moveUp: (formControl.valueChanges| async),
+               moveDown: !(formControl.valueChanges | async)}">
+      {{ placeholder }}
+</label>
+
+
+<span *ngIf="placeholder === 'Password' && formControl.dirty"
+      (click)="showOrHidePassword()" class="showOrHidePassword"
+      @showPasswordAnimation>
+     {{ type === 'password' ? 'Show' : 'Hide'}}
+</span>
+
+<p class="error" *ngIf="inValidity" @errorAnimation>
+   You Must Enter {{ placeholder }}
+</p>
           
+

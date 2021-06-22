@@ -1,3 +1,4 @@
+import { LandingComponent } from './app-components/landing/landing.component';
 import { LoginComponent } from './app-components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,6 +7,11 @@ import { AuthorizationGuard } from './services/authorization.guard';
 
 
 const routes: Routes = [
+  {
+    path: '',
+    component: LandingComponent
+  },
+  
   {
     path: 'login',
     component: LoginComponent,
@@ -19,7 +25,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login',
+    redirectTo: '',
   },
   {
     path: '**',

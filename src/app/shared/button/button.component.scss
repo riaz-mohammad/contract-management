@@ -1,19 +1,39 @@
   :host{
     display: block;
+    border-radius: 8px;
+    background-color: #2791fc;
   }
 
 
   .button{
+    border-radius: 8px;
     width: 100%;
     height: 100%;
-    background-color: black;
     color: white;
     padding: 1rem;
     box-sizing: border-box;
-    transition: all 300ms ease;
+    transition: all 250ms ease;
     font-weight: bold;
-      &:hover{
-        background-color: white;
-        color: black
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    &::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: scaleX(0);
+      background-color: #0966c4;
+      transition: all 400ms ease;
+      transform-origin: left;
+      z-index: -1;
+      border-radius: 8px;
+    }
+      &:hover::after{
+        transform: scaleX(1);
       }
+       
   }

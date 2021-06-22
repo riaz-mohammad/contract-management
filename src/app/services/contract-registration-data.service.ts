@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { forkJoin, BehaviorSubject, Observable } from 'rxjs';
+import { ReplaySubject, Observable, combineLatest, forkJoin } from 'rxjs';
 import { Contract, Advisor, Client,} from './../types/types';
 
 
@@ -9,9 +9,9 @@ import { Contract, Advisor, Client,} from './../types/types';
   providedIn: 'root',
 })
 export class ContractRegistrationDataService {
-  private contractDataSource = new BehaviorSubject<Contract | undefined>(undefined);
-  private advisorDataSource = new BehaviorSubject<Advisor | undefined>(undefined);
-  private clientDataSource = new BehaviorSubject<Client | undefined>(undefined);
+  private contractDataSource = new ReplaySubject<Contract>();
+  private advisorDataSource = new ReplaySubject<Advisor>();
+  private clientDataSource = new ReplaySubject<Client>();
   public contractData$ = this.contractDataSource.asObservable();
   public advisorData$ = this.advisorDataSource.asObservable();
   public clientData$ = this.clientDataSource.asObservable();
@@ -19,6 +19,7 @@ export class ContractRegistrationDataService {
   
   public registerContract(contract: Contract): void {
     this.contractDataSource.next(contract);
+    
   }
 
   public registerAdvisor(advisor: Advisor): void {

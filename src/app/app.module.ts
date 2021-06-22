@@ -12,6 +12,7 @@ import { NavigationComponent } from './app-components/navigation/navigation.comp
 import { BannerComponent } from './app-components/banner/banner.component';
 import { LoginComponent } from './app-components/login/login.component';
 import { LogoutModalComponent } from './shared/logout-modal/logout-modal.component';
+import { LandingComponent } from './app-components/landing/landing.component';
 
 
 
@@ -25,6 +26,7 @@ import { LogoutModalComponent } from './shared/logout-modal/logout-modal.compone
     NavigationComponent,
     BannerComponent,
     LoginComponent,
+    LandingComponent,
     
     
   ],

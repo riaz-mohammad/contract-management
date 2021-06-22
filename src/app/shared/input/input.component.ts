@@ -2,20 +2,22 @@ import { Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { errorAnimation, showPasswordAnimation } from './error-animation';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
+  animations: [errorAnimation, showPasswordAnimation],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => InputComponent),
-      multi: true
+      multi: true,
     },
   ],
 })
-export class InputComponent implements OnInit, ControlValueAccessor {
+export class InputComponent implements ControlValueAccessor {
   @Input() type!: string;
   @Input() placeholder!: string;
   @Input() min: number | undefined;
@@ -42,9 +44,15 @@ export class InputComponent implements OnInit, ControlValueAccessor {
     this.valueChanged(this.formControl.value);
   }
 
-  public get validity(): boolean {
+  public get inValidity(): boolean {
     return this.formControl.dirty && this.formControl.invalid ? true : false;
   }
 
-  ngOnInit(): void {}
+  public showOrHidePassword(): void {
+    if (this.type === 'password') {
+      this.type = 'text';
+      return;
+    }
+    this.type = 'password';
+  }
 }

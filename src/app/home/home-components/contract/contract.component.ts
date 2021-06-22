@@ -8,8 +8,8 @@ import { Advisor, Client, Contract } from 'src/app/types/types';
   styleUrls: ['./contract.component.scss'],
 })
 export class ContractComponent {
-  @Input() contract$!: Observable<Contract | undefined>;
-  @Input() client$!: Observable<Client | undefined>;
-  @Input() advisor$!: Observable<Advisor | undefined>;
+  @Input() contract$!: Observable<Contract>;
+  @Input() client$!: Observable<Client>;
+  @Input() advisor$!: Observable<Advisor>;
 
 }

@@ -1,15 +1,23 @@
 <h2 class="header">Enter Your Credentials</h2>
-<!-- the login form will be shown immediately on App load -->
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
-    <label for="name">EMAIL:</label>
-      <input formControlName="email" id="name" placeholder="Email" type="text">
-     <span>{{ emailError }}</span>
+ <img src="../../../assets/login-logo.png" class="login-logo">
+ <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
 
-    <label for="password">PASSWORD:</label>
-      <input formControlName="password" id="password" placeholder="Password" type="password">
-     <span>{{ passwordError }}</span>
+      
+      
+     <app-input placeholder="Email" class="input"
+                type="text"
+                formControlName="email">
+    </app-input>
+     <app-input placeholder="Password" class="input"
+                type="password"
+                formControlName="password">
+    </app-input>
 
-      <button class="button">LOGIN</button>
+    
+    <app-button type="submit" class=button>LOGIN</app-button>
+
+      
 </form>
     
-     
+    
+
