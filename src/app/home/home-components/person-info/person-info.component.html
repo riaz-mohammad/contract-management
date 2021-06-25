@@ -41,8 +41,10 @@
       </app-input>
       
       <!-- Here the button component will be rendered -->
-      <div class="submit-button">
-          <ng-content></ng-content>
-      </div>
+      <app-button type="submit" 
+                 class="submit-button">
+        <ng-content></ng-content>
+      </app-button>
+        
           
 </form>

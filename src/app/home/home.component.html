@@ -1,20 +1,11 @@
-
-    <app-registrations class="registration">
-        <app-button (click)="showButtons()">
-            REGISTRATION
-        </app-button>
-        <ng-container *ngIf="buttonsState">
-            <!-- routerLink could do the work but 
-        all this buttons call the changeRoute method to change the route path according to the argument passed,
-        and also toggle the buttonsState -->
-            <app-button (click)="changeRoute('/home/registration')">REGISTER A CONTRACT</app-button>
-            <app-button (click)="changeRoute('/home/contracts')">CONTRACTS</app-button>
-            <app-button (click)="changeRoute('/home/advisors')">ADVISORS</app-button>
-            <app-button (click)="changeRoute('/home/clients')">CLIENTS</app-button>
-            <app-button (click)="showLogoutModal()">LOGOUT</app-button>
-         </ng-container>
-    </app-registrations>
-
-
+<div class="container">
+<h1>It's easier than you ever thought to register a contract</h1>
+<app-button class="register-button"
+    (click)="goToRegistration()">
+    REGISTER A CONTRACT
+</app-button>
+<h3>You can register any contract just in 3 steps:</h3> 
+</div>
+<app-cards></app-cards>
 <router-outlet></router-outlet>
 

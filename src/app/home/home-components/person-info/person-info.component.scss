@@ -1,9 +1,10 @@
 :host{
   display: flex;
   flex-direction: column;
-  width: 40%;
-  height: 80%;
-  background-color: rgba(0, 0, 0, 0.521);
+  width: 90%;
+  height: 95%;
+  color: rgba(255, 255, 255, 0.712);
+  
 }
 
 .form{
@@ -14,16 +15,22 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 5px;
-  padding: 1rem;
   box-sizing: border-box;
-  gap: 40px;
+  
 }
   .input{
-    flex-basis: 8%;
-    width: 80%;
+    flex-basis: 55px;
+    width: 90%;
+    background-color: rgba(128, 128, 128, 0.664);
   }
 
-  .submit-button{
-    width: 50%;
+    
 
+  .submit-button{
+    width: 60%;
+    flex-basis: 50px;
+    position: relative;
+    top: 10px;
 }
+    
+    

@@ -21,11 +21,10 @@ export class NavigationComponent{
   }
 
   public logout(): void {
-    this.buttonsState = !this.buttonsState;
     this.logoutService.showModal(true);
   }
 
-  public  showButton(path: string): boolean {
+  public  path(path: string): boolean {
     return this.router.url === path;
   }
   

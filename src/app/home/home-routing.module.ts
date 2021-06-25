@@ -9,13 +9,13 @@ import { AdvisorsComponent } from './home-components/advisors/advisors.component
 import { ClientsComponent } from './home-components/clients/clients.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, data: {animation: 'home'} },
+  { path: 'registration', component: ContractRegistrationComponent, data: {animation: 'registration'} },
+  { path: 'registration/client', component: ClientComponent, data: {animation: 'client'} }, 
+  { path: 'registration/advisor', component: AdvisorComponent, data: {animation: 'advisor'} },
   { path: 'contracts', component: ContractsComponent },
   { path: 'advisors', component: AdvisorsComponent },
   { path: 'clients', component: ClientsComponent },
-  { path: 'registration', component: ContractRegistrationComponent },
-  { path: 'registration/client', component: ClientComponent },
-  { path: 'registration/advisor', component: AdvisorComponent },
 ];
   
 

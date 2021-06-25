@@ -1,38 +1,35 @@
+
+
 <img class="logo" 
-    src="../../../assets/smart-contract.png" 
+    src="../../../assets/agreement.png" 
     alt="contract-logo">
 
-<h2 class="header">
+<ng-container *ngIf="!(path('/') || path('/login'))">
+    
+    <nav class="nav">
+           <app-nav-link path="/home/registration">
+               REGISTER A CONTRACT
+           </app-nav-link>
+           <app-nav-link path="/home/contracts">
+               CONTRACTS
+           </app-nav-link>
+           <app-nav-link path="/home/clients">
+               CLIENTS
+           </app-nav-link>
+           <app-nav-link path="/home/advisors">
+               ADVISORS
+           </app-nav-link>
+    </nav>
+
+   <app-button class="logout-button"
+               (click)="logout()">
+      LOGOUT
+   </app-button>
+</ng-container>
+
+
+<h2 class="header" *ngIf="path('/') || path('/login')">
   CONTRACT MANAGEMENT
 </h2>
 
-<!--   
-  <ng-container *ngIf="!(showButton('/home') || showButton('/login'))">
   
-     <app-registrations class="registration">
-        <app-button (click)="showButtons()">
-            REGISTRATION
-        </app-button>
-        <ng-container *ngIf="buttonsState">
-            <app-button (click)="changeRoute('/home')">HOME</app-button>
-            <app-button *ngIf="!showButton('/home/registration')" 
-                        (click)="changeRoute('/home/registration')">
-                  REGISTER A CONTRACT
-            </app-button>
-            <app-button *ngIf="!showButton('/home/contracts')" 
-                        (click)="changeRoute('/home/contracts')">
-                  CONTRACTS
-            </app-button>
-            <app-button *ngIf="!showButton('/home/advisors')"
-                        (click)="changeRoute('/home/advisors')">
-                  ADVISORS
-            </app-button>
-            <app-button *ngIf="!showButton('/home/clients')"
-                        (click)="changeRoute('/home/clients')">
-                  CLIENTS
-            </app-button>
-            <app-button (click)="logout()">LOGOUT</app-button>
-         </ng-container>
-    </app-registrations> 
-
-  </ng-container> -->

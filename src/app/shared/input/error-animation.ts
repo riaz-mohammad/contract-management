@@ -5,7 +5,7 @@ export const errorAnimation = trigger('errorAnimation', [
   transition(':enter', [
     style({
       opacity: 0,
-      transform: 'translateX(150%)'
+      transform: 'translateX(100%)'
     }),
 
     animate('400ms ease', style({
@@ -17,7 +17,7 @@ export const errorAnimation = trigger('errorAnimation', [
   transition(':leave', [
     animate('400ms ease', style({
       opacity: 0,
-      transform: 'translateX(150%)'
+      transform: 'translateX(100%)'
 
     }))
   ])

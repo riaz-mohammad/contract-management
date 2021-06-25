@@ -2,11 +2,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 95vh;
-  width: 100%;
+  height: 90%;
+  width: 35%;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.473);
+  border: 1px solid rgba(0, 0, 0, 0.432);
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.indicator{
+  position: relative;
+  top: 20px;
 }
   
-.client-header{
-  color: white;
-}
+  

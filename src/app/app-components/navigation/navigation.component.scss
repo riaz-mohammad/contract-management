@@ -5,11 +5,10 @@
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  // background-color: hsl(0deg 0% 97%);
-  // background-color: hsl(179deg 30% 35%);
-  background-color: white;
+  background-color: rgba(128, 128, 128, 0.733);
+
 }
 
 .logo{
@@ -20,19 +19,30 @@
   
 
 .header{
-  color: #0a81f8;
+  // color: #0a81f8;
+  color: white;
   letter-spacing: 5px;
   background-color: rgba(0, 0, 0, 0.075);
   padding: 5px;
+  
 }
 
   
-
-.registration{
-  position: absolute;
-  left: 30%;
-  width: 15%;
-  top: 20%;
-  
+.nav{
+  display: flex;
+  flex-basis: 40%;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
 }
+
+.logout-button{
+ height: 10%;
+ margin-right: 70px;
+}
+  
+  
+  
+  
   

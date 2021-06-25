@@ -9,24 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  public buttonsState!: boolean;
-  public showModal$: Observable<boolean> = this.logoutService.showModal$;
   constructor(
-    private router: Router,
-    private logoutService: LogoutService) { }
-  
-  public showButtons(): void {
-    this.buttonsState = !this.buttonsState;
-    // this.router.navigate(['home/registration']);
-  }
-  
-  public showLogoutModal(): void {
-    this.logoutService.showModal(true);
-  }
-  public changeRoute(path: string): void {
-    this.buttonsState = !this.buttonsState;
-    this.router.navigate([path]);
-  }
+    private router: Router) { }
 
-  
+  public goToRegistration(): void {
+   this.router.navigate(['/home/registration']);
+ }
 }
+  
+  
+  

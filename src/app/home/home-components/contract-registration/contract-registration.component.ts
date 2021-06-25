@@ -4,12 +4,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContractRegistrationDataService } from 'src/app/services/contract-registration-data.service';
 import { Dates } from 'src/app/types/types';
+import { error } from '../../registration-error-animation';
+
 
 
 @Component({
   selector: 'app-contract-registration',
   templateUrl: './contract-registration.component.html',
   styleUrls: ['./contract-registration.component.scss'],
+  animations: [error]
 })
 export class ContractRegistrationComponent implements OnInit {
   public formGroup!: FormGroup;
@@ -116,7 +119,7 @@ export class ContractRegistrationComponent implements OnInit {
           ],
         }),
       },
-      { updateOn: 'submit' }
+      { updateOn: 'blur' }
     );
   }
 

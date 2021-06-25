@@ -1,10 +1,14 @@
 
+<app-progress-indicator 
+  imagePath="../../../../assets/one.png">
+  Contract Details
+</app-progress-indicator>
 
 
-
-<h3 class="registration-header">CONTRACT REGISTRATION</h3>
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
   <!-- App-Input is a custom input which implements ControlValueAccessor Interface -->
+ 
+ <div class="first-two-input">
   <app-input class="input" 
             placeholder="Registration Number"
             type="text"
@@ -15,10 +19,10 @@
             type="text"
             formControlName="institution">
   </app-input>
- 
+ </div> 
   <!-- Conclusion date is today date, -->
+    <h4>Conclusion Date:</h4>
   <div class="dates" formGroupName="conclusionDate">
-    <p>Conclusion Date:</p>
        <app-input class="date" placeholder="Day"
                   type="number"
                   [min]="dates.minDay"
@@ -39,9 +43,9 @@
         </app-input>
   </div>
   
-  <!-- Validity start from the next day of Conclusion Date -->
+  <!-- Validity start from the next day of Conclusion Date: -->
+    <h4>Validity Date:</h4>
   <div class="dates" formGroupName="validityDate">
-    <p>Validity Date:</p>
        <app-input class="date" placeholder="Day"
                   type="number"
                   [min]="dates.minDay + 1"
@@ -63,8 +67,8 @@
   </div>
   
   <!-- Termination Should be minimum 1 year -->
+    <h4>Termination Date:</h4>
   <div class="dates" formGroupName="terminationDate">
-    <p>Termination Date:</p>
        <app-input class="date" placeholder="Day"
                   type="number"
                   [min]="dates.minDay + 1"
@@ -85,9 +89,10 @@
        </app-input>
   </div>
   
-  <p class="error" *ngIf="formGroup.dirty && formGroup.invalid">
+  <h5 *ngIf="formGroup.dirty && formGroup.invalid"
+      class="error" @error>
     Please fill-in all the fields correctly!
-  </p>
+  </h5>
     <app-button type="submit" class="submit-button">NEXT</app-button>
 </form>
 

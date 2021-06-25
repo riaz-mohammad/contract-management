@@ -1,3 +1,4 @@
+
 import { SharedModule } from './../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -16,12 +17,16 @@ import { ContractComponent } from './home-components/contract/contract.component
 import { TableHeaderComponent } from './home-components/table-header/table-header.component';
 import { TableDataComponent } from './home-components/table-data/table-data.component';
 import { DetailsComponent } from './home-components/details/details.component';
+import { CardsComponent } from './home-components/cards/cards.component';
+import { CardComponent } from './home-components/card/card.component';
+import { ProgressIndicatorComponent } from './progress-indicator/progress-indicator.component';
 
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    CardsComponent,
     ContractRegistrationComponent,
     PersonInfoComponent,
     ClientComponent,
@@ -33,6 +38,9 @@ import { DetailsComponent } from './home-components/details/details.component';
     TableHeaderComponent,
     TableDataComponent,
     DetailsComponent,
+    CardComponent,
+    ProgressIndicatorComponent,
+
   ],
   imports: [
     CommonModule,

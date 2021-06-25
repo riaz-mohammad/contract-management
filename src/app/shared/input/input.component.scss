@@ -36,9 +36,10 @@
   
 .label {
   position: absolute;
-  width: 10%;
+  width: max-content;
   transition: all 300ms ease;
   font-size: 1rem;
+  cursor: text;
   &.moveUp{
     top: 0;
     font-size: .6rem;
@@ -65,7 +66,7 @@
 .error{
   position: absolute;
   color: red;
-  top: 75%;
+  top: 78%;
   left: 0;
   font-size: .8rem;
 }
