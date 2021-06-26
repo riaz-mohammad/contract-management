@@ -1,4 +1,6 @@
+import { ExactPath } from './../../types/types';
 import { Component, Input, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-nav-link',
@@ -7,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavLinkComponent  {
   @Input() path!: string;
+  @Input() exactPathMatch: ExactPath  = {exact: false};
   constructor() { }
 }
 

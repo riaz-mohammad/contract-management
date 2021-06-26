@@ -13,20 +13,32 @@
              >
       </app-input>
   <!-- Client and Advisor both should be minimum 18 years old and maximum 60 years old-->
-     <app-input class="input"
-             type="number" 
-             [min]="ages.min"
-             [max]="ages.max"
-             placeholder="Age"
-             formControlName="age"
-             >
-      </app-input>
-     <app-input class="input"
-             type="text" 
-             placeholder="Email"
-             formControlName="email"
-             >
-      </app-input>
+     <div class="input age">
+        <app-input class="inner-input"
+                type="number" 
+                [min]="ages.min"
+                [max]="ages.max"
+                placeholder="Age"
+                formControlName="age"
+                >
+        </app-input>
+        <span @error *ngIf="age.dirty && age.invalid">
+                Age should be minimum 18 years & maximum 60 years!
+        </span>
+     </div>
+     <div class="input email">
+        <app-input class="inner-input"
+                type="text" 
+                placeholder="Email"
+                formControlName="email"
+                >
+                
+        </app-input>
+
+        <span @error *ngIf="emailError">
+                Not a valid email!
+        </span>
+     </div>
      <app-input class="input"
              type="text" 
              placeholder="Telephone Number"
@@ -40,7 +52,10 @@
              >
       </app-input>
       
-      <!-- Here the button component will be rendered -->
+      <h5 *ngIf="showError"
+          class="error-onsubmit" @error>
+         Please fill-in all the fields correctly!
+     </h5>
       <app-button type="submit" 
                  class="submit-button">
         <ng-content></ng-content>

@@ -1,7 +1,7 @@
   :host{
     display: block;
     border-radius: 8px;
-    background-color: #2791fc;
+    background-color: #0966c4;
   }
 
 
@@ -26,11 +26,11 @@
       width: 100%;
       height: 100%;
       transform: scaleX(0);
-      background-color: #0966c4;
       transition: all 400ms ease;
       transform-origin: left;
       z-index: -1;
       border-radius: 8px;
+     background-color: #2791fc;
     }
       &:hover::after{
         transform: scaleX(1);

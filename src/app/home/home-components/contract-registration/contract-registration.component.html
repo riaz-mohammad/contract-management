@@ -41,6 +41,10 @@
                   [max]="dates.minYear"
                   formControlName="year">
         </app-input>
+        <span *ngIf="conclusionDate.dirty && conclusionDate.invalid"
+              class="conclusion-date-error" @error>
+            Conclusion Date must be today date!
+        </span>
   </div>
   
   <!-- Validity start from the next day of Conclusion Date: -->
@@ -64,6 +68,10 @@
                   [max]="dates.maxYear"
                   formControlName="year">
        </app-input>
+        <span *ngIf="validityDate.dirty && validityDate.invalid"
+            class="conclusion-date-error" @error>
+            Validity Date must be the next date of Conclusion Date!
+        </span>
   </div>
   
   <!-- Termination Should be minimum 1 year -->
@@ -87,9 +95,13 @@
                   [max]="dates.maxYear"
                   formControlName="year">
        </app-input>
+        <span *ngIf="terminationDate.dirty && terminationDate.invalid"
+            class="conclusion-date-error" @error>
+            Termination Date must be minimum 1 year from the Validity Date!
+        </span>
   </div>
-  
-  <h5 *ngIf="formGroup.dirty && formGroup.invalid"
+  <!-- show a message if the user clicked the NEXT button without filling in the all the form -->
+  <h5 *ngIf="showError && formGroup.dirty"
       class="error" @error>
     Please fill-in all the fields correctly!
   </h5>

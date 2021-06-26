@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ReplaySubject, Observable, combineLatest, forkJoin } from 'rxjs';
-import { Contract, Advisor, Client,} from './../types/types';
+import { Observable, ReplaySubject, zip} from 'rxjs';
+import { Contract, Advisor, Client, Contracts,} from './../types/types';
 
 
   
@@ -9,13 +9,20 @@ import { Contract, Advisor, Client,} from './../types/types';
   providedIn: 'root',
 })
 export class ContractRegistrationDataService {
-  private contractDataSource = new ReplaySubject<Contract>();
-  private advisorDataSource = new ReplaySubject<Advisor>();
-  private clientDataSource = new ReplaySubject<Client>();
+  private contractDataSource = new ReplaySubject<Contract>(1);
+  private advisorDataSource = new ReplaySubject<Advisor>(1);
+  private clientDataSource = new ReplaySubject<Client>(1);
+
   public contractData$ = this.contractDataSource.asObservable();
   public advisorData$ = this.advisorDataSource.asObservable();
   public clientData$ = this.clientDataSource.asObservable();
   
+  //If the user completed all the three steps,
+  public contracts$ = zip(
+    this.contractData$,
+    this.clientData$,
+    this.advisorData$
+  );
   
   public registerContract(contract: Contract): void {
     this.contractDataSource.next(contract);

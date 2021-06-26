@@ -2,7 +2,8 @@
       imagePath="../../../../assets/three.png">
    Advisor Details
 </app-progress-indicator>
-<app-person-info title="advisor" [nextPath]="['/home']">
+<app-person-info title="advisor" [nextPath]="['/home']"
+      (finishRegistration)="onFinishRegistration()">
       FINISH REGISTRATION
 </app-person-info>
 

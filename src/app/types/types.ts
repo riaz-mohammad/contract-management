@@ -1,3 +1,10 @@
+// export interface Contracts {
+//   contract: Contract[];
+//   advisor: Advisor[];
+//   client: Client[];
+// }
+
+
 export interface Contract {
   registrationNumber: string;
   institution: string;
@@ -23,6 +30,12 @@ export interface PersonData {
 
 export interface Client extends PersonData {}
 export interface Advisor extends PersonData { }
+export interface Contracts {
+  contract: Contract;
+  client: Client;
+  advisor: Advisor;
+}
+
 
 export interface Dates {
   minDay: number;
@@ -39,4 +52,9 @@ export type Title = 'advisor' | 'client';
 export interface Credentials {
   email: string;
   password: string;
+}
+
+
+export interface ExactPath {
+  exact: boolean;
 }

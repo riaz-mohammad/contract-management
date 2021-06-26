@@ -16,7 +16,7 @@ import { error } from '../../registration-error-animation';
 })
 export class ContractRegistrationComponent implements OnInit {
   public formGroup!: FormGroup;
-  public showNextStep!: boolean;
+  public showError!: boolean;
   public dates: Dates = {
     minDay: new Date().getDate(),
     maxDay: 31,
@@ -119,7 +119,7 @@ export class ContractRegistrationComponent implements OnInit {
           ],
         }),
       },
-      { updateOn: 'blur' }
+      { updateOn: 'change' }
     );
   }
 
@@ -134,13 +134,24 @@ export class ContractRegistrationComponent implements OnInit {
   public get terminationDate(): FormGroup {
     return this.formGroup.get('terminationDate') as FormGroup;
   }
-
+  
+  showErrorOnSubmit(): void {
+    if (this.formGroup.dirty) {
+      this.showError = true;
+    }
+  }
   public onSubmit(): void {
     if (this.formGroup.valid) {
       this.contractDataService.registerContract(this.formGroup.value);
       this.router.navigate(['home/registration/client']);
+      return;
     }
+    
+    this.showErrorOnSubmit();
   }
+    
+
+
       
       
       

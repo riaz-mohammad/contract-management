@@ -1,3 +1,7 @@
+
+       
+    
+    
 <ul class="table">
   <!-- Table Headers Client-->
   <app-table-header class="table-header owner">
@@ -22,9 +26,10 @@
     NATIONAL IDENTITY NUMBER
   </app-table-header>
   
+
   <!-- Table Data Client-->
+  
     
-  <ng-container *ngIf="client$ | async as client">
     <!-- this one is an empty component just not to have hole in the ui table  -->
      <app-table-data class="table-data"></app-table-data>
       <app-table-data class="table-data">
@@ -46,7 +51,8 @@
         {{ client.nationalIdentificationNumber }}
       </app-table-data>
     
-  </ng-container>
+    
+  
   
 
  <!-- Table Headers Contract-->
@@ -76,7 +82,8 @@
 
  <!-- Table Data Contract -->
 
- <ng-container *ngIf="contract$ | async as contract">
+  
+   
     <!-- this one is an empty component just not to have hole in the ui table  -->
     <app-table-data class="table-data"></app-table-data>
     <app-table-data class="table-data">
@@ -96,7 +103,7 @@
     </app-table-data>
     <app-table-data class="table-data"></app-table-data>
     
- </ng-container>
+ 
   
 <!-- Table Headers Advisor  -->
  <app-table-header class="table-header owner">
@@ -121,9 +128,12 @@
     NATIONAL IDENTITY NUMBER
   </app-table-header>
  
-  <!-- Table Data Advisor -->
     
- <ng-container *ngIf="advisor$ | async as advisor">
+
+  
+  <!-- Table Data Advisor -->
+
+  
    <!-- this one is an empty component just not to have hole in the ui table  -->
     <app-table-data class="table-data"></app-table-data>
     <app-table-data class="table-data">
@@ -144,6 +154,6 @@
     <app-table-data class="table-data">
       {{advisor.nationalIdentificationNumber}}
     </app-table-data>
- </ng-container>
+ 
 </ul>
 

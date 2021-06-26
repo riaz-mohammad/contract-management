@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs';
-import { Component, Input, OnInit } from '@angular/core';
-import { Advisor, Client, Contract } from 'src/app/types/types';
+import { Advisor, Client, Contract, Contracts } from './../../../types/types';
+import { Component, Input} from '@angular/core';
+
 
 @Component({
   selector: 'app-contract',
@@ -8,8 +8,17 @@ import { Advisor, Client, Contract } from 'src/app/types/types';
   styleUrls: ['./contract.component.scss'],
 })
 export class ContractComponent {
-  @Input() contract$!: Observable<Contract>;
-  @Input() client$!: Observable<Client>;
-  @Input() advisor$!: Observable<Advisor>;
-
+  public contract!: Contract;
+  public client!: Client;
+  public advisor!: Advisor;
+  
+  @Input()
+   set contractData(contractData: Contracts) {
+    let { contract, client, advisor } = contractData;
+    this.contract = contract;
+    this.client = client;
+    this.advisor = advisor;
+  }
+  
+  
 }

@@ -31,7 +31,9 @@
     color: red;
   }
 
-
+  .ng-valid:not(form){
+    color:  #2a8df0;
+  }
 
   h4{
     box-sizing: border-box;
@@ -93,11 +95,19 @@
   display: flex;
   width: 80%;
   gap: 5px;
-  
+  position: relative;
  .date{
    flex-basis: 100%;
     background-color: rgba(128, 128, 128, 0.664);
     color: rgba(255, 255, 255, 0.712);
  } 
+
+ .conclusion-date-error{
+    position: absolute;
+    top: -45%;
+    text-align: center;
+    font-size: .8rem;
+    color: red;
+ }
  
 }

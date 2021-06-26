@@ -1,4 +1,6 @@
-<a [routerLink]="path" routerLinkActive="router-link-active" class="link">
+<a [routerLink]="path" routerLinkActive="router-link-active" 
+   [routerLinkActiveOptions]="exactPathMatch" 
+    class="link">
   <ng-content></ng-content>
 </a>
   

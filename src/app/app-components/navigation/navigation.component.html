@@ -7,6 +7,10 @@
 <ng-container *ngIf="!(path('/') || path('/login'))">
     
     <nav class="nav">
+           <app-nav-link path="/home" 
+                [exactPathMatch]="{exact: true}">
+               HOME
+           </app-nav-link>
            <app-nav-link path="/home/registration">
                REGISTER A CONTRACT
            </app-nav-link>
