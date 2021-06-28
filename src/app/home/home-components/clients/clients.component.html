@@ -1,23 +1,59 @@
-  <h2>CLIENT</h2>
- <ng-container *ngIf="client$ | async as client">
-    <!-- Don't show the detail box and button if the detail preview is open -->
-    <ng-container *ngIf="!showClient">
-      <div class="clients">
-        <h3>{{ client.name }}</h3>
-        <app-button (click)="showClientInfo()">DETAILS</app-button>
-      </div>
-    </ng-container>
- </ng-container>
+<h3>CLIENTS</h3>
 
-<!-- The detail preview component -->
-<ng-container *ngIf="showClient">
-    
-    <app-details 
-          (closeDetails)="showClientInfo()"
-          [details$]="client$">
-          CLIENT DETAILS
-    </app-details>
-
+<ng-container *ngFor="let contract of contracts; index as i">
+       
+        <app-details [details]="contract.client" >
+            <app-button (click)="clientDetails(i)"
+                        class="button">
+                DETAILS
+            </app-button>
+        </app-details> 
+            
+   
 </ng-container>
-      
+
+        
+
+<div class="contract-container" *ngIf="fullDetails$ | async as details">
+    <h3>CLIENT DETAILS</h3>
+    <app-contract [contractData]="details" @contractDetail class="contract">
+        <app-button (click)="closeClientDetails()" 
+                    class="button">
+            CLOSE
+        </app-button>
+    </app-contract>
+</div>
+
+
+
+
+
+    
+
+   
+
+
+
+
+      <!-- <app-details 
+        [details]="{name: 'HELLO', surname: 'WORLD', age: 30, 
+                email: 'helloworld@gmail.com',
+                telephoneNumber: '03339302633', 
+                nationalIdentificationNumber: 'AAABBB11122'}">
+    <app-button (click)="clientDetails(1)"
+                class="button">
+        DETAILS
+    </app-button>
+    </app-details>    -->
+
+<!--    
+    <div class="contract-container">
+        <h3>CLIENT DETAILS</h3>
+        <app-contract [contractData]="contract" class="contract" @contractDetail>
+            <app-button class="button">CLOSE</app-button>
+        </app-contract>   
+   </div>
+ 
+
+ -->
 

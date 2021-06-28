@@ -22,7 +22,8 @@
   &:focus +.focus{
     width: 100%;
   }
-
+  
+  
   &:focus ~.label{
     top: 0;
     font-size: .7rem;

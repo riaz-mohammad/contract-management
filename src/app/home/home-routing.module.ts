@@ -7,15 +7,43 @@ import { ContractRegistrationComponent } from './home-components/contract-regist
 import { HomeComponent } from './home.component';
 import { AdvisorsComponent } from './home-components/advisors/advisors.component';
 import { ClientsComponent } from './home-components/clients/clients.component';
+import { CanDeactivateRouteGuard } from '../services/can-deactivate-route.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: {animation: 'home'} },
-  { path: 'registration', component: ContractRegistrationComponent, data: {animation: 'registration'} },
-  { path: 'registration/client', component: ClientComponent, data: {animation: 'client'} }, 
-  { path: 'registration/advisor', component: AdvisorComponent, data: {animation: 'advisor'} },
-  { path: 'contracts', component: ContractsComponent },
-  { path: 'advisors', component: AdvisorsComponent },
-  { path: 'clients', component: ClientsComponent },
+  { path: '', component: HomeComponent, data: { animation: 'home' } },
+  {
+    path: 'registration',
+    component: ContractRegistrationComponent,
+    data: { animation: 'registration' },
+    canDeactivate: [CanDeactivateRouteGuard],
+  },
+  {
+    path: 'registration/client',
+    component: ClientComponent,
+    data: { animation: 'client' },
+    canDeactivate: [CanDeactivateRouteGuard],
+  },
+  {
+    path: 'registration/advisor',
+    component: AdvisorComponent,
+    data: { animation: 'advisor' },
+    canDeactivate: [CanDeactivateRouteGuard],
+  },
+  {
+    path: 'contracts',
+    component: ContractsComponent,
+    data: { animation: 'contracts' },
+  },
+  {
+    path: 'advisors',
+    component: AdvisorsComponent,
+    data: { animation: 'advisors' },
+  },
+  {
+    path: 'clients',
+    component: ClientsComponent,
+    data: { animation: 'clients' },
+  },
 ];
   
 

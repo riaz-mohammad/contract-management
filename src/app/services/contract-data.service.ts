@@ -1,8 +1,8 @@
-import { ContractRegistrationDataService } from './contract-registration-data.service';
-
+import { Injectable} from '@angular/core';
 import { ReplaySubject, Observable, Subscription } from 'rxjs';
-import { Injectable, OnInit } from '@angular/core';
+
 import { Contracts } from '../types/types';
+import { ContractRegistrationDataService } from './contract-registration-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +12,14 @@ export class ContractDataService {
   public contracts$: Observable<Contracts> = this.contractSource.asObservable();
   private sub: Subscription | undefined;
   constructor(private contractRegistrationService: ContractRegistrationDataService) {
-    this.sub = this.contractRegistrationService
+     this.contractRegistrationService
       .contracts$.subscribe(
         ([contract, client, advisor]) => {
           this.contractSource.next({
             contract,
             client,
             advisor
-          }),
-            this.sub?.unsubscribe();
+          })
        }  
       )
    }

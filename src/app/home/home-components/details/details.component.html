@@ -1,26 +1,25 @@
 
-  <h2>
-    <ng-content></ng-content>
-  </h2>
 <ul class=table>
    <!-- Details Table Headers -->
-  <app-table-header class="table-header">NAME</app-table-header>
-  <app-table-header class="table-header">SURNAME</app-table-header>
-  <app-table-header class="table-header">AGE</app-table-header>
-  <app-table-header class="table-header">EMAIL</app-table-header>
-  <app-table-header class="table-header">TELEPHONE NUMBER</app-table-header>
-  <app-table-header class="table-header">NATIONAL IDENTITY NUMBER</app-table-header>
-  
+      <app-table-header class="table-header">NAME</app-table-header>
+      <app-table-header class="table-header">SURNAME</app-table-header>
+      <app-table-header class="table-header">AGE</app-table-header>
+      <app-table-header class="table-header">EMAIL</app-table-header>
+      <app-table-header class="table-header">TELEPHONE NUMBER</app-table-header>
+      <app-table-header class="table-header">NATIONAL IDENTITY NUMBER</app-table-header>
+      
      <!-- Details Table Data -->
 
-     
-<ng-container *ngIf="details$ | async as personDetails">
-    <app-table-data class="table-data">{{ personDetails.name }}</app-table-data>
-    <app-table-data class="table-data">{{ personDetails.surname }}</app-table-data>
-    <app-table-data class="table-data">{{ personDetails.age }}</app-table-data>
-    <app-table-data class="table-data">{{ personDetails.email }}</app-table-data>
-    <app-table-data class="table-data">{{ personDetails.telephoneNumber }}</app-table-data>
-    <app-table-data class="table-data">{{ personDetails.nationalIdentificationNumber }}</app-table-data>
-</ng-container>
+      <app-table-data class="table-data">{{ details.name }}</app-table-data>
+      <app-table-data class="table-data">{{ details.surname }}</app-table-data>
+      <app-table-data class="table-data">{{ details.age }}</app-table-data>
+      <app-table-data class="table-data">{{ details.email }}</app-table-data>
+      <app-table-data class="table-data">{{ details.telephoneNumber }}</app-table-data>
+      <app-table-data class="table-data">{{ details.nationalIdentificationNumber }}</app-table-data>
+
 </ul>
-<app-button (click)="close()" class="close-button">CLOSE</app-button>
+
+<ng-content></ng-content>
+
+
+

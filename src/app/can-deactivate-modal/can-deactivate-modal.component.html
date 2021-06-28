@@ -1,0 +1,16 @@
+<div class="container" @modalAnimation>
+    <h4>Your current changes to the FORM will be lost!</h4>
+    <div class="buttons">
+
+        <app-button (click)="confirmOrRejectNavigation(true)" 
+                     class="button">
+            YES
+        </app-button>
+        <app-button (click)="confirmOrRejectNavigation(false)" 
+                    class="button">
+            NO
+        </app-button>
+    </div>
+</div>
+
+

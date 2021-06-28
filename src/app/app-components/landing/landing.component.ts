@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { buttonAnimation, fadeOut, titleAnimation } from 'src/app/landing-component-animation';
+import { buttonAnimation, fadeOut, titleAnimation } from 'src/app/animations/landing-component-animation';
 
 @Component({
   selector: 'app-landing',

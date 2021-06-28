@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent {
-  @Input() details$!: Observable<Advisor | Client | undefined>;
+  @Input() details!: Advisor | Client;
   @Output() closeDetails: EventEmitter<void> = new EventEmitter();
   constructor() {}
 

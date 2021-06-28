@@ -5,7 +5,10 @@
               [placeholder]="placeholder"
               [formControl]="formControl"
               (input)="onValueChange()"
-              (blur)="onTouched()"/>
+              (blur)="onTouched()"
+              (focus)="color = 'black'"
+              [style.color]="color"
+              />
 <div class="focus"></div>
 
 <label [for]="placeholder" class="label" 

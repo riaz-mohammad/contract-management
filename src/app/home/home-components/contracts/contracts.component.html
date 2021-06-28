@@ -1,10 +1,14 @@
  <h2>TOTAL CONTRACTS: {{ contracts.length}}</h2>
  <ng-container *ngFor="let contract of contracts">
-  <app-contract [contractData]="contract">
-  </app-contract>
+  <app-contract [contractData]="contract"></app-contract>
 </ng-container>
 
-
+  
+<!-- 
+  <app-contract [contractData]="contract"></app-contract>
+  <app-contract [contractData]="contract"></app-contract>
+  <app-contract [contractData]="contract"></app-contract>
+ -->
 
 
 

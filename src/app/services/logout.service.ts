@@ -19,7 +19,7 @@ export class LogoutService {
     
   public logOut(flag: true): void {
     this._showModal.next(!flag);
-    this.router.navigate(['/login'])
+    this.router.navigate([''])
     this.authorizationService.removeUserCredentials(CREDENTIALS);
   }  
       

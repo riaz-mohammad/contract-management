@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, ReplaySubject, zip} from 'rxjs';
-import { Contract, Advisor, Client, Contracts,} from './../types/types';
+import { ReplaySubject, zip} from 'rxjs';
+import { Contract, Advisor, Client} from './../types/types';
 
 
   

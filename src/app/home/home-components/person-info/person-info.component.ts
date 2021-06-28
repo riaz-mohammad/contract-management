@@ -1,24 +1,21 @@
-import { FormControl } from '@angular/forms';
-import { Title } from './../../../types/types';
+import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
+import { Age, Title } from './../../../types/types';
 import { Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContractRegistrationDataService } from 'src/app/services/contract-registration-data.service';
-import { error } from '../../registration-error-animation';
+import { error } from '../../../animations/registration-error-animation';
 
 
 
-interface Age {
-  min: number;
-  max: number;
-}
+
 @Component({
   selector: 'app-person-info',
   templateUrl: './person-info.component.html',
   styleUrls: ['./person-info.component.scss'],
-  animations: [error]
+  animations: [error],
 })
 export class PersonInfoComponent implements OnInit {
   @Input() nextPath!: [string];
@@ -33,7 +30,9 @@ export class PersonInfoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private contractDataService: ContractRegistrationDataService) {}
+    private contractDataService: ContractRegistrationDataService
+  ) {}
+  
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
@@ -48,11 +47,31 @@ export class PersonInfoComponent implements OnInit {
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
-      telephoneNumber: ['', Validators.required],
+      telephoneNumber: [
+        '+420',
+        [
+          Validators.required,
+          Validators.minLength(13),
+          Validators.maxLength(13),
+          this.mustBeNumber,
+        ],
+      ],
       nationalIdentificationNumber: ['', Validators.required],
     });
   }
 
+  public formNotSubmitted(): boolean {
+    return (this.formGroup.dirty && this.formGroup.invalid);
+  }
+  public mustBeNumber(control: AbstractControl): ValidationErrors | null {
+    let phoneNumber = +control.value;
+    return Number.isNaN(phoneNumber) ? { incorrectNumber: true } : null;
+  }
+
+  public get InvalidPhoneNumber(): boolean {
+    let email = this.formGroup.get('telephoneNumber') as FormControl;
+    return email.hasError('incorrectNumber') ? true : false;
+  }
   public get age(): FormControl {
     return this.formGroup.get('age') as FormControl;
   }
@@ -60,7 +79,6 @@ export class PersonInfoComponent implements OnInit {
   public get email(): FormControl {
     return this.formGroup.get('email') as FormControl;
   }
-
 
   public get emailError(): boolean {
     return this.email.hasError('email') ? true : false;
@@ -70,7 +88,6 @@ export class PersonInfoComponent implements OnInit {
     if (this.formGroup.dirty) {
       this.showError = true;
     }
-      
   }
 
   public onSubmit(): void {
@@ -79,15 +96,12 @@ export class PersonInfoComponent implements OnInit {
         this.contractDataService.registerClient(this.formGroup.value);
         this.router.navigate(this.nextPath);
         return;
-      } 
+      }
       this.contractDataService.registerAdvisor(this.formGroup.value);
       this.finishRegistration.emit();
       this.router.navigate(this.nextPath);
     }
-    
-    this.showErrorOnSubmit();
-     
-  }
-      
 
+    this.showErrorOnSubmit();
+  }
 }

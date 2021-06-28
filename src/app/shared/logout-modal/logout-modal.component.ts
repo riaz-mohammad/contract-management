@@ -1,7 +1,7 @@
 import { LogoutService } from '../../services/logout.service';
 import { Component, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-import { modalAnimation } from './modal-animation';
+import { modalAnimation } from '../../animations/modal-animation';
 
 @Component({
   selector: 'app-logout-modal',

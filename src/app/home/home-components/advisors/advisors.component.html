@@ -1,22 +1,57 @@
-<h2>ADVISOR</h2>
- <ng-container *ngIf="advisors$ | async as advisor">
-    <!-- Don't show the detail box and button if the detail preview is open -->
-    <ng-container *ngIf="!showAdvisor">
-      <div class="advisors">
-        <h3>{{ advisor.name }}</h3>
-        <app-button (click)="showAdvisorInfo()">DETAILS</app-button>
-      </div>
-    </ng-container>
- </ng-container>
+<h3>ADVISORS</h3>
 
-<!-- The detail preview component -->
-<ng-container *ngIf="showAdvisor">
-    
-    <app-details 
-          (closeDetails)="showAdvisorInfo()"
-          [details$]="advisors$">
-          ADVISOR DETAILS
-    </app-details>
-
+<ng-container *ngFor="let contract of contracts; index as i">
+  
+      <app-details [details]="contract.advisor">
+        <app-button (click)="totalContracts(i)"
+                    class="total-button">
+            SEE TOTAL CONTRACTS
+        </app-button>
+      </app-details>
 </ng-container>
-      
+
+
+  
+<div *ngIf="totalContractsDone.length" class="total-contracts">
+   <h3>CONTRACTS REGISTERED BY: {{ totalContractsDone[0].advisor.name}}</h3>
+   <app-contract *ngFor="let contract of totalContractsDone" @contractDetail 
+                 [contractData]="contract" class="contract">
+   </app-contract>
+   <app-button (click)="closeTotalContract()" class="close-button" @advisorButtonAnimation>CLOSE</app-button>
+
+</div>
+<!--   
+<div class="total-contracts">
+   <h3>CONTRACTS REGISTERED BY:</h3>
+   <app-contract @contractDetail 
+                  class="contract">
+   </app-contract>
+   <app-button (click)="closeTotalContract()" class="close-button" @advisorButtonAnimation>CLOSE</app-button>
+
+</div>
+      -->
+ 
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<app-details 
+  [details]="{name: 'HELLO', surname: 'WORLD', age: 30, 
+            email: 'helloworld@gmail.com',
+            telephoneNumber: '03339302633', 
+            nationalIdentificationNumber: 'AAABBB11122'}">
+    <app-button (click)="totalContracts(1)"
+                class="details-button">
+        DETAILS
+    </app-button>
+</app-details> 
+ -->
+

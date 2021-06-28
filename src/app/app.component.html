@@ -1,5 +1,7 @@
 <app-navigation></app-navigation>
-<app-banner></app-banner> 
+<!-- The only time components can overflow when there are multiple contracts 
+     in the contracts component, so the background image should not be shown -->
+<app-banner *ngIf="route.url !== '/home/contracts'"></app-banner> 
 
 <ng-container *ngIf="showModal$ | async">
     <app-logout-modal>
@@ -13,5 +15,7 @@
 
 
 
- 
-
+<app-can-deactivate-modal 
+     *ngIf="navigationService.showModal$ | async">
+</app-can-deactivate-modal>
+    

@@ -1,3 +1,4 @@
+import { loginAnimation } from '../../animations/login-animation';
 import { LogoutService } from './../../services/logout.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';

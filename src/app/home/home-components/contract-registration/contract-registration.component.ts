@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContractRegistrationDataService } from 'src/app/services/contract-registration-data.service';
 import { Dates } from 'src/app/types/types';
-import { error } from '../../registration-error-animation';
+import { error } from '../../../animations/registration-error-animation';
+import { DeactivateRoute } from './../../../types/types';
 
 
 
@@ -12,9 +13,9 @@ import { error } from '../../registration-error-animation';
   selector: 'app-contract-registration',
   templateUrl: './contract-registration.component.html',
   styleUrls: ['./contract-registration.component.scss'],
-  animations: [error]
+  animations: [error],
 })
-export class ContractRegistrationComponent implements OnInit {
+export class ContractRegistrationComponent implements OnInit, DeactivateRoute {
   public formGroup!: FormGroup;
   public showError!: boolean;
   public dates: Dates = {
@@ -30,8 +31,12 @@ export class ContractRegistrationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private contractDataService: ContractRegistrationDataService
-  ) { }
+  ) {}
   
+  public formNoSubmitted(): boolean {
+    return (this.formGroup.invalid && this.formGroup.dirty);
+  }
+
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group(
       {
@@ -134,7 +139,7 @@ export class ContractRegistrationComponent implements OnInit {
   public get terminationDate(): FormGroup {
     return this.formGroup.get('terminationDate') as FormGroup;
   }
-  
+
   showErrorOnSubmit(): void {
     if (this.formGroup.dirty) {
       this.showError = true;
@@ -146,15 +151,9 @@ export class ContractRegistrationComponent implements OnInit {
       this.router.navigate(['home/registration/client']);
       return;
     }
-    
+
     this.showErrorOnSubmit();
   }
-    
-
-
-      
-      
-      
 }
       
       

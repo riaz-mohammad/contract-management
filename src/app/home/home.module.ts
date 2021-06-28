@@ -1,4 +1,5 @@
 
+
 import { SharedModule } from './../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,6 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { ContractRegistrationComponent } from './home-components/contract-registration/contract-registration.component';
 import { PersonInfoComponent } from './home-components/person-info/person-info.component';
 import { ClientComponent } from './home-components/client/client.component';
 import { AdvisorComponent } from './home-components/advisor/advisor.component';
@@ -20,6 +20,7 @@ import { DetailsComponent } from './home-components/details/details.component';
 import { CardsComponent } from './home-components/cards/cards.component';
 import { CardComponent } from './home-components/card/card.component';
 import { ProgressIndicatorComponent } from './progress-indicator/progress-indicator.component';
+import { ContractRegistrationComponent } from './home-components/contract-registration/contract-registration.component';
 
 
 
@@ -39,8 +40,7 @@ import { ProgressIndicatorComponent } from './progress-indicator/progress-indica
     TableDataComponent,
     DetailsComponent,
     CardComponent,
-    ProgressIndicatorComponent,
-
+    ProgressIndicatorComponent
   ],
   imports: [
     CommonModule,

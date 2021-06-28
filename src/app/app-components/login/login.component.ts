@@ -1,36 +1,37 @@
+import { error } from '../../animations/registration-error-animation';
 import { Component, HostBinding, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthorizationService } from './../../services/authorization.service';
-import { buttonAnimation, fadeOut } from "src/app/landing-component-animation";
-import { loginAnimation } from "src/app/login-animation";
+import { buttonAnimation, fadeOut } from "src/app/animations/landing-component-animation";
+import { loginAnimation } from "src/app/animations/login-animation";
+import { Subject } from 'rxjs';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [buttonAnimation, loginAnimation],
+  animations: [buttonAnimation, loginAnimation, error],
 })
 export class LoginComponent implements OnInit {
   @HostBinding('@loginAnimation')
   get runAnimation(): boolean {
     return true;
   }
+  private showLoading: Subject<boolean> = new Subject();
+  public showLoading$ = this.showLoading.asObservable();
+
   public formGroup!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
     private authorizationService: AuthorizationService
   ) {}
 
-  public get emailError(): string {
-    if (this.email.dirty && this.email.hasError('required')) {
-      return 'Email is required!';
-    }
-
-    return this.email.hasError('email') ? 'Email is not valid!' : '';
+  public get emailError(): boolean {
+    return (this.email.dirty && this.email.hasError('email')) ? true : false;
   }
+    
 
   
 
@@ -42,7 +43,8 @@ export class LoginComponent implements OnInit {
   public onSubmit(): void {
     if (this.formGroup.valid) {
       this.authorizationService.saveUserCredentials(this.formGroup.value);
-      this.router.navigate(['/home']);
+      // this.router.navigate(['/home']);
+      this.showLoading.next(true);
     }
   }
   ngOnInit(): void {

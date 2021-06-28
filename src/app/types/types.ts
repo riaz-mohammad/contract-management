@@ -1,10 +1,12 @@
-// export interface Contracts {
-//   contract: Contract[];
-//   advisor: Advisor[];
-//   client: Client[];
-// }
 
+export interface DeactivateRoute {
+  formNoSubmitted: () => boolean;
+}
 
+export interface Age {
+  min: number;
+  max: number;
+}
 export interface Contract {
   registrationNumber: string;
   institution: string;

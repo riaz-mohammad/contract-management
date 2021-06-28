@@ -28,6 +28,13 @@
   width: 100%;
   height: 70%;
   box-sizing: border-box;
+  position: relative;
+}
+
+.Invalid-email{
+  position: absolute;
+  top: 9%;
+  color: red;
 }
 
 .input{
@@ -40,7 +47,7 @@
 .button{
   flex-basis: 14%;
   width: 90%;
-  background-color: #2791fc;
+  // background-color: #2791fc;
 }
 
 

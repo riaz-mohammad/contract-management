@@ -60,7 +60,7 @@
     color: red;
   }
 
-  .ng-valid:not(form){
+  .ng-touched.ng-valid:not(form){
     color:  #2a8df0;
   }
 

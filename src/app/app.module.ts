@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+import { CanDeactivateModalComponent } from './can-deactivate-modal/can-deactivate-modal.component';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { BannerComponent } from './app-components/banner/banner.component';
 import { LoginComponent } from './app-components/login/login.component';
 import { LandingComponent } from './app-components/landing/landing.component';
 import { NavLinkComponent } from './app-components/nav-link/nav-link.component';
+import { LoadingComponent } from './loading/loading.component';
+
 
 @NgModule({
   declarations: [
@@ -22,9 +25,8 @@ import { NavLinkComponent } from './app-components/nav-link/nav-link.component';
     LoginComponent,
     LandingComponent,
     NavLinkComponent,
-
-    
-    
+    LoadingComponent,
+    CanDeactivateModalComponent
   ],
   imports: [
     BrowserModule,

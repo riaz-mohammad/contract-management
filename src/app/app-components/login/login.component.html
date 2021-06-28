@@ -1,5 +1,6 @@
 <h2 class="header">Enter Your Credentials</h2>
  <img src="../../../assets/login-logo.png" class="login-logo">
+
  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
 
       
@@ -15,9 +16,13 @@
 
     
     <app-button type="submit" class=button @buttonAnimation>LOGIN</app-button>
-
+   
+   <span class=Invalid-email @error *ngIf="emailError">Not a valid Email!</span>
       
 </form>
-    
+     
     
 
+<app-loading *ngIf="showLoading$ | async">
+</app-loading>
+    

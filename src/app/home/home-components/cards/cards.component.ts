@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
-import { cardAnimation } from 'src/app/card-animation';
+import { cardAnimation } from 'src/app/animations/card-animation';
 
 @Component({
   selector: 'app-cards',

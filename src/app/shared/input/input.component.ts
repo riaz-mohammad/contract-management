@@ -2,7 +2,7 @@ import { Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { errorAnimation, showPasswordAnimation } from './error-animation';
+import { errorAnimation, showPasswordAnimation } from '../../animations/error-animation';
 
 @Component({
   selector: 'app-input',
@@ -22,6 +22,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() placeholder!: string;
   @Input() min: number | undefined;
   @Input() max: number | undefined;
+  color = 'transparent';
   public formControl = new FormControl('', Validators.required);
 
   public valueChanged(value: string): void {}
